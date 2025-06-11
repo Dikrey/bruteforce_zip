@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hanz Cracker v2.0 - Web UI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="background-animation"></div>
+    
+    <div class="container">
+        <pre class="ascii-art neon-text">
+
+██╗░░██╗░█████╗░███╗░░██╗███████╗
+██║░░██║██╔══██╗████╗░██║╚════██║
+███████║███████║██╔██╗██║░░███╔═╝
+██╔══██║██╔══██║██║╚████║██╔══╝░░
+██║░░██║██║░░██║██║░╚███║███████╗
+╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝╚══════╝
+
+  ╔══════════════════════════════╗
+  ║      💥 HANZ CRACKER v2.0 💥      ║
+  ║      ULTIMATE ARCHIVE BLASTER     ║
+  ║ Powered by Raihan_official0307 🚀 ║
+  ╚══════════════════════════════╝
+        </pre>
+        <p class="current-time pulse">📅 Current Time: <span id="current-time"></span></p>
+        <hr class="neon-divider">
+
+        <div class="menu">
+            <button class="menu-btn" onclick="showSection('bruteforce-section')">💥 Bruteforce File ZIP</button>
+            <button class="menu-btn" onclick="showSection('folder-section')">📂 Kelola File</button>
+            <button class="menu-btn" onclick="showSection('wordlist-section')">🔑 Kelola Wordlist</button>
+            <button class="menu-btn" onclick="showSection('settings-section')">⚙️ Pengaturan</button>
+            <button class="menu-btn login-btn" id="loginBtn" onclick="showLogin()">Login Admin</button>
+            <button class="menu-btn logout-btn hidden" id="logoutBtn" onclick="logoutAdmin()">Logout Admin</button>
+            <button class="menu-btn exit-btn" onclick="exitApp()">🚪 Keluar Aplikasi</button>
+        </div>
+
+        <div id="loginModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="hideLogin()">&times;</span>
+                <h2>Login Admin</h2>
+                <input type="text" id="adminUsername" placeholder="Username">
+                <input type="password" id="adminPassword" placeholder="Password">
+                <button class="action-btn" onclick="loginAdmin()">Login</button>
+                <p id="loginStatus" class="status-message"></p>
+            </div>
+        </div>
+
+        <div id="bruteforce-section" class="section active fade-in">
+            <h2>💥 Bruteforce File ZIP</h2>
+            <div class="card upload-form">
+                <h3>Upload File ZIP</h3>
+                <input type="file" id="zipFile" accept=".zip">
+                <button class="action-btn" onclick="uploadFile()">Upload File</button>
+                <p id="upload-status" class="status-message"></p>
+            </div>
+
+            <div class="card">
+                <h3>Pilih File untuk Bruteforce</h3>
+                <select id="fileSelect" onchange="updateSelectedFile()"></select>
+                <p id="selected-file-info" class="info-text">Pilih file dari daftar di atas.</p>
+                
+                <button class="action-btn-red" onclick="startBruteforce()" id="bruteforceBtn">Mulai Bruteforce</button>
+            </div>
+
+            <div class="card output-card">
+                <h3>Output Bruteforce:</h3>
+                <pre id="bruteforce-output" class="output"></pre>
+                <div id="bruteforce-result" class="result-message hidden"></div>
+            </div>
+        </div>
+
+        <div id="folder-section" class="section fade-in">
+            <h2>📂 Kelola File (Folderanda)</h2>
+            <div class="card">
+                <h3>Daftar File</h3>
+                <button class="action-btn" onclick="listFolderFiles()">Refresh Daftar File</button>
+                <ul id="folder-files" class="file-list"></ul>
+            </div>
+
+            <div class="card admin-only" id="deleteFileCard">
+                <h3>Hapus File <span class="badge admin-badge">Admin</span></h3>
+                <select id="fileToDeleteSelect"></select>
+                <button class="action-btn-red" onclick="deleteSelectedFile()">Hapus File Terpilih</button>
+            </div>
+
+            <div class="card admin-only" id="createTestZipCard">
+                <h3>Buat File ZIP Test <span class="badge admin-badge">Admin</span></h3>
+                <input type="text" id="testZipName" placeholder="Nama file ZIP (ex: test.zip)">
+                <input type="text" id="testZipPassword" placeholder="Password untuk test ZIP (ex: 123test)">
+                <button class="action-btn" onclick="createTestZip()">Buat ZIP Test</button>
+                <p id="createTestZipStatus" class="status-message"></p>
+            </div>
+        </div>
+
+
+        <div id="wordlist-section" class="section fade-in">
+            <h2>🔑 Kelola Wordlist</h2>
+            <div class="card admin-only" id="addPasswordCard">
+                <h3>Tambah Password <span class="badge admin-badge">Admin</span></h3>
+                <input type="text" id="newPassword" placeholder="Password Baru">
+                <button class="action-btn" onclick="addPassword()">Tambah</button>
+            </div>
+            <div class="card admin-only" id="removePasswordCard">
+                <h3>Hapus Password <span class="badge admin-badge">Admin</span></h3>
+                <input type="text" id="passwordToRemove" placeholder="Password yang akan dihapus">
+                <button class="action-btn-red" onclick="removePassword()">Hapus</button>
+            </div>
+            <div class="card">
+                <h3>Lihat Isi Wordlist</h3>
+                <button class="action-btn" onclick="viewWordlist()">Lihat Wordlist</button>
+                <pre id="wordlist-output" class="output"></pre>
+            </div>
+        </div>
+
+        <div id="settings-section" class="section fade-in">
+            <h2>⚙️ Pengaturan</h2>
+            <div class="card">
+                <h3>Kecepatan Animasi (Saat Bruteforce)</h3>
+                <select id="animSpeed" class="modern-select">
+                    <option value="normal" {% if anim_speed == 'normal' %}selected{% endif %}>Normal (Animasi penuh efek)</option>
+                    <option value="fast" {% if anim_speed == 'fast' %}selected{% endif %}>Cepat (Spinner & teks password)</option>
+                    <option value="off" {% if anim_speed == 'off' %}selected{% endif %}>Mati (Paling cepat, minimal output)</option>
+                </select>
+                <button class="action-btn" onclick="saveAnimSpeed()">Simpan Kecepatan Animasi</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
