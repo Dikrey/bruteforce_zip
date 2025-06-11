@@ -23,7 +23,7 @@ Fitur Unggulan 🌟
  * Logging: Hasil bruteforce disimpan dalam file log bruteforce_log.txt untuk referensi di kemudian hari.
 Cara Memulai 🚀
  * Clone Repositori Ini:
-   git clone https://github.com/your-username/hanz-cracker-web.git # Ganti dengan URL repo Anda
+   git clone https://github.com/Dikrey/bruteforce_zip.git
 cd hanz-cracker-web
 
  * Instal Dependensi:
