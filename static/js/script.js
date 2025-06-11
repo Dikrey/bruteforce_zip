@@ -1,8 +1,6 @@
-// --- Global State ---
-let isAdminLoggedIn = false;
-let currentAnimSpeed = 'normal';
 
-// --- Utility Functions ---
+let isAdminLoggedIn = false;
+let currentAnimSpeed = 'normal'
 function updateCurrentTime() {
     const now = new Date();
     const formattedTime = now.toLocaleString('en-US', {
@@ -20,7 +18,6 @@ function updateCurrentTime() {
 updateCurrentTime();
 setInterval(updateCurrentTime, 1000);
 
-// Generic function to display messages
 function displayStatusMessage(elementId, message, type) {
     const el = document.getElementById(elementId);
     if (el) {
@@ -29,14 +26,12 @@ function displayStatusMessage(elementId, message, type) {
     }
 }
 
-// Show/Hide Sections
 function showSection(sectionId) {
     document.querySelectorAll('.section').forEach(section => {
         section.classList.remove('active');
     });
     document.getElementById(sectionId).classList.add('active');
 
-    // Reset status messages and outputs when changing sections
     document.querySelectorAll('.status-message').forEach(el => el.textContent = '');
     document.querySelectorAll('.output').forEach(el => el.textContent = '');
     document.getElementById('bruteforce-result').classList.add('hidden');
@@ -49,15 +44,14 @@ function showSection(sectionId) {
     // For wordlist-section, user needs to click "Lihat Isi Wordlist" explicitly
 }
 
-// Initial load: check admin status and show default section
+
 document.addEventListener('DOMContentLoaded', () => {
     checkAdminStatus();
     showSection('bruteforce-section');
 
-    // Set anim speed dropdown value based on backend data (passed via Jinja)
     const animSpeedSelect = document.getElementById('animSpeed');
-    const initialAnimSpeed = animSpeedSelect ? animSpeedSelect.value : 'normal'; // Get initial value from selected option
-    currentAnimSpeed = initialAnimSpeed; // Update local state
+    const initialAnimSpeed = animSpeedSelect ? animSpeedSelect.value : 'normal';
+    currentAnimSpeed = initialAnimSpeed; 
 });
 
 // --- Admin Login/Logout ---
@@ -338,7 +332,6 @@ async function startBruteforce() {
     }
 }
 
-// --- Admin-only File Management Functions ---
 async function deleteSelectedFile() {
     if (!isAdminLoggedIn) {
         alert('Anda harus login sebagai Admin untuk menghapus file.');
@@ -412,7 +405,7 @@ async function createTestZip() {
     }
 }
 
-// --- Wordlist Management Functions ---
+
 async function addPassword() {
     if (!isAdminLoggedIn) {
         alert('Anda harus login sebagai Admin untuk menambah password.');
@@ -492,8 +485,6 @@ async function viewWordlist() {
         wordlistOutput.style.color = 'red';
     }
 }
-
-// --- Folder Files Listing ---
 async function listFolderFiles() {
     const folderFilesList = document.getElementById('folder-files');
     const fileToDeleteSelect = document.getElementById('fileToDeleteSelect');
@@ -528,7 +519,7 @@ async function listFolderFiles() {
     }
 }
 
-// --- Animation Settings ---
+// --- Animasi Settings ---
 async function saveAnimSpeed() {
     const animSpeedSelect = document.getElementById('animSpeed');
     const selectedSpeed = animSpeedSelect.value;
@@ -547,7 +538,6 @@ async function saveAnimSpeed() {
     }
 }
 
-// --- Exit Application ---
 function exitApp() {
     if (!isAdminLoggedIn) {
         alert('Anda harus login sebagai Admin untuk menghentikan aplikasi.');
