@@ -1,5 +1,3 @@
----
-
 # ⚡ Hanz Cracker v2.0 - Ultimate Archive Blaster 🚀
 
 **Hanz Cracker v2.0** adalah tool canggih berbasis web untuk melakukan bruteforce password file arsip terenkripsi (saat ini mendukung format `.zip`). Dengan antarmuka modern dan fitur lengkap, Anda dapat dengan mudah mengelola file, wordlist, serta menjalankan proses bruteforce langsung dari browser Anda.
