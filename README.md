@@ -89,7 +89,7 @@ http://0.0.0.0:5000 (untuk akses via jaringan LAN)
 
 Proyek ini open-source dan terbuka untuk kontribusi!
 Temukan bug? Punya ide baru? Silakan:
-t.me/@raihan_official0307
+t.me/raihan_official0307
 
 Buat issue
 Kirim pull request
