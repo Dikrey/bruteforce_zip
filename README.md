@@ -78,7 +78,10 @@ http://0.0.0.0:5000 (untuk akses via jaringan LAN)
 
 📸 Screenshot
 
+> ![Tampilan UI Hanz Cracker](image/2.png)
 > ![Tampilan UI Hanz Cracker](image/1.png)
+> ![Tampilan UI Hanz Cracker](image/3.png)
+> ![Tampilan UI Hanz Cracker](image/4.png)
 
 ---
 
