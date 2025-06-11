@@ -53,7 +53,7 @@ Flask
 tqdm
 Werkzeug
 
-3️⃣ Konfigurasi Admin (WAJIB)
+3️⃣ Konfigurasi Admin (optional)
 
 Ubah kredensial admin di app.py atau melalui environment variables:
 
@@ -62,11 +62,11 @@ export HANZ_CRACKER_PASS="password_rahasia_anda"
 
 4️⃣ Jalankan Aplikasi
 
-python app.py
+python index.py
 
 5️⃣ Akses di Browser
 
-Buka:
+Buka url yang diberikan:
 
 http://127.0.0.1:5000 (lokal)
 
@@ -89,9 +89,9 @@ http://0.0.0.0:5000 (untuk akses via jaringan LAN)
 
 Proyek ini open-source dan terbuka untuk kontribusi!
 Temukan bug? Punya ide baru? Silakan:
+t.me/@raihan_official0307
 
 Buat issue
-
 Kirim pull request
 
 
