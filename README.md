@@ -1,51 +1,106 @@
-# Hanz Cracker v2.0 - Ultimate Archive Blaster 🚀
+---
 
-Hanz Cracker v2.0 adalah sebuah tool canggih yang dirancang untuk membantu Anda menemukan password dari file arsip yang terenkripsi (saat ini mendukung format ZIP). Dengan antarmuka web modern dan intuitif, Anda dapat dengan mudah mengelola file, wordlist, dan meluncurkan serangan bruteforce langsung dari browser Anda.
-Apa Itu Serangan Bruteforce?
-Serangan Bruteforce adalah metode percobaan berulang kali di mana sistem akan mencoba setiap kombinasi password yang mungkin dari daftar yang telah ditentukan (wordlist) hingga menemukan password yang benar. Ini adalah metode yang paling sederhana namun seringkali efektif, terutama jika wordlist yang digunakan komprehensif atau password target relatif lemah. Hanz Cracker mengotomatiskan proses ini untuk file arsip Anda.
-Fitur Unggulan 🌟
- * Antarmuka Web Modern: Nikmati pengalaman pengguna yang lancar dan intuitif dengan UI web yang responsif, keren, dan penuh animasi.
- * Dukungan File ZIP: Saat ini fokus pada pemecahan password untuk file arsip berekstensi .zip.
- * Manajemen File Arsip:
-   * Upload File: Unggah file ZIP langsung dari perangkat Anda ke server.
-   * Lihat Daftar File: Lihat semua file arsip yang tersedia di folder folderanda.
-   * Hapus File (Admin): Hapus file arsip yang sudah diunggah untuk menjaga kebersihan.
-   * Buat File ZIP Test (Admin): Buat file ZIP terenkripsi dengan password yang Anda tentukan sendiri, sangat berguna untuk pengujian dan pembelajaran.
- * Manajemen Wordlist:
-   * Lihat Isi Wordlist: Periksa semua password yang akan dicoba dalam file passhanz.txt.
-   * Tambah Password (Admin): Tambahkan password baru ke wordlist Anda.
-   * Hapus Password (Admin): Hapus password yang tidak diperlukan dari wordlist.
- * Bruteforce Real-time:
-   * Lihat progress bar dan password yang sedang dicoba secara real-time di browser.
-   * Dapatkan notifikasi instan saat password ditemukan atau proses selesai.
- * Pengaturan Animasi: Sesuaikan kecepatan animasi untuk bruteforce (Normal, Cepat, Mati) sesuai preferensi Anda.
- * Sistem Admin Sederhana: Fitur-fitur sensitif (manajemen file, wordlist, dan keluar aplikasi) dilindungi oleh sistem login admin sederhana.
- * Logging: Hasil bruteforce disimpan dalam file log bruteforce_log.txt untuk referensi di kemudian hari.
-Cara Memulai 🚀
- * Clone Repositori Ini:
-   git clone https://github.com/Dikrey/bruteforce_zip.git
-cd hanz-cracker-web
+# ⚡ Hanz Cracker v2.0 - Ultimate Archive Blaster 🚀
 
- * Instal Dependensi:
-   pip install -r requirements.txt
+**Hanz Cracker v2.0** adalah tool canggih berbasis web untuk melakukan bruteforce password file arsip terenkripsi (saat ini mendukung format `.zip`). Dengan antarmuka modern dan fitur lengkap, Anda dapat dengan mudah mengelola file, wordlist, serta menjalankan proses bruteforce langsung dari browser Anda.
 
-   Pastikan requirements.txt berisi:
-   Flask
+---
+
+## 🔐 Apa Itu Bruteforce?
+
+Bruteforce adalah metode mencoba semua kemungkinan password secara otomatis dari sebuah daftar (wordlist) sampai menemukan yang cocok. Cocok untuk menguji kekuatan password atau melakukan pemulihan pada file arsip yang lupa password-nya.
+
+---
+
+## ✨ Fitur Unggulan
+
+- 🔥 **Antarmuka Web Modern** — Responsif, interaktif, dan penuh animasi.
+- 📦 **Dukungan File ZIP** — Fokus pada bruteforce untuk file `.zip`.
+- 📁 **Manajemen File Arsip**
+  - Upload file `.zip`
+  - Lihat dan kelola daftar file
+  - Hapus file (Admin)
+  - Buat file ZIP terenkripsi untuk pengujian (Admin)
+- 🔑 **Manajemen Wordlist**
+  - Lihat isi `passhanz.txt`
+  - Tambah/hapus password dari wordlist (Admin)
+- ⚙️ **Bruteforce Real-time**
+  - Progress bar real-time
+  - Tampilkan password yang sedang diuji
+  - Notifikasi saat password ditemukan
+- 🌀 **Kontrol Animasi**
+  - Atur kecepatan animasi: Normal | Cepat | Mati
+- 🛡️ **Login Admin Sederhana**
+  - Proteksi untuk fitur manajemen penting
+- 📄 **Logging**
+  - Catatan hasil bruteforce disimpan di `bruteforce_log.txt`
+
+---
+
+## 🚀 Cara Instalasi & Penggunaan
+
+### 1️⃣ Clone Repositori
+
+```bash
+git clone https://github.com/Dikrey/bruteforce_zip.git
+cd bruteforce_zip
+
+2️⃣ Instal Dependensi
+
+pip install -r requirements.txt
+
+Pastikan file requirements.txt berisi:
+
+Flask
 tqdm
 Werkzeug
 
- * Konfigurasi Admin (PENTING!):
-   Ubah username dan password admin default di app.py, atau setel melalui environment variables (sangat direkomendasikan):
-   export HANZ_CRACKER_USER="admin_anda"
+3️⃣ Konfigurasi Admin (WAJIB)
+
+Ubah kredensial admin di app.py atau melalui environment variables:
+
+export HANZ_CRACKER_USER="admin_anda"
 export HANZ_CRACKER_PASS="password_rahasia_anda"
 
- * Jalankan Aplikasi:
-   python app.py
+4️⃣ Jalankan Aplikasi
 
- * Akses dari Browser:
-   Buka browser Anda dan kunjungi http://127.0.0.1:5000 (atau http://0.0.0.0:5000 jika diakses dari perangkat lain di jaringan lokal).
-Screenshot (Opsional, tapi sangat direkomendasikan!)
-Tambahkan beberapa screenshot UI aplikasi Anda di sini untuk menarik perhatian!
-Kontribusi & Dukungan 🙏
-Proyek ini bersifat open source dan kami menyambut kontribusi dari siapa pun! Jika Anda menemukan bug atau memiliki ide fitur baru, silakan buka issue atau kirimkan pull request.
-Selamat mencoba Hanz Cracker v2.0 - Ultimate Archive Blaster! 🚀
+python app.py
+
+5️⃣ Akses di Browser
+
+Buka:
+
+http://127.0.0.1:5000 (lokal)
+
+http://0.0.0.0:5000 (untuk akses via jaringan LAN)
+
+
+
+---
+
+📸 Screenshot
+
+> 
+
+---
+
+🤝 Kontribusi
+
+Proyek ini open-source dan terbuka untuk kontribusi!
+Temukan bug? Punya ide baru? Silakan:
+
+Buat issue
+
+Kirim pull request
+
+
+
+---
+
+❤️ Dukungan
+
+Jika Anda suka proyek ini, jangan lupa ⭐ repo-nya!
+Selamat menggunakan Hanz Cracker v2.0 - Ultimate Archive Blaster! 💥
+
+
+---
